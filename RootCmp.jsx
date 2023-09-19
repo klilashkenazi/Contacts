@@ -9,7 +9,7 @@ import { HomePage } from './pages/HomePage.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
 import { ContactIndex } from './pages/ContactIndex.jsx'
 import { store } from './store/store.js'
-// import { CarDetails } from './pages/CarDetails.jsx'
+import { ContactDetails } from './pages/ContactDetails.jsx'
 
 
 export function App() {
@@ -24,7 +24,7 @@ export function App() {
                             <Route element={<HomePage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
                             <Route element={<ContactIndex />} path="/contact" />
-                            {/* <Route element={<CarDetails />} path="/car/:carId" /> */}
+                            <Route element={<ContactDetails />} path="/contact/:contactId" />
                         </Routes>
                     </main>
                     {/* <AppFooter /> */}
