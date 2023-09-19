@@ -3,22 +3,23 @@ const { useSelector, useDispatch } = ReactRedux
 const { Link } = ReactRouterDOM
 
 import { ContactList } from '../cmps/ContactList.jsx'
-// import { CarList } from '../cmps/CarList.jsx'
+import { ContactFilter } from '../cmps/ContactFilter.jsx'
 import { contactService } from '../services/contact.service.js'
 import { loadContacts, removeContact, addContact } from '../store/actions/contact.action.js'
+import { SET_FILTER_BY } from '../store/reducers/contact.reducer.js'
 
 export function ContactIndex() {
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const contacts = useSelector(storeState => storeState.contactModule.contacts)
-    // const filterBy = useSelector(storeState => storeState.carModule.filterBy)
+    const filterBy = useSelector(storeState => storeState.contactModule.filterBy)
 
     useEffect(() => {
         loadContacts()
             .catch(err => {
                 console.log('err:', err)
             })
-    }, [])
+    }, [filterBy])
 
 
     function onRemoveContact(contactId) {
@@ -58,17 +59,17 @@ export function ContactIndex() {
     //         })
     // }
 
-    // function onSetFilter(filterBy) {
-    //     dispatch({ type: SET_FILTER_BY, filterBy })
-    // }
+    function onSetFilter(filterBy) {
+        dispatch({ type: SET_FILTER_BY, filterBy })
+    }
 
     return (
         <div>
             <h3>Contacts App</h3>
             <main>
+                
                 <button><Link to='/contact/Edit'>Add Contact</Link></button>
-                {/* <CarFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
-
+                <ContactFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 <ContactList
                     contacts={contacts}
                     onRemoveContact={onRemoveContact}
