@@ -1,0 +1,11 @@
+.contact-filter {
+    background-color: var(--clr2bg);
+    padding: 1em;
+    border-radius: 10px;
+}
+.contact-filter .sort-by, .search-key{
+    margin-inline-end: 15px;
+    border-radius: 10px;
+    padding: 5px;
+
+}

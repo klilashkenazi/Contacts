@@ -65,7 +65,6 @@ export function ContactIndex() {
 
     return (
         <div>
-            <h3>Contacts App</h3>
             <main>
                 
                 <button><Link to='/contact/Edit'>Add Contact</Link></button>

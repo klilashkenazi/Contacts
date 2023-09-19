@@ -1,0 +1,21 @@
+.contact-edit{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-edit form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+}
+
+.contact-edit label{
+    font-weight: bold;
+}
+
+.contact-edit input{
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+}
