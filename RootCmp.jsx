@@ -10,6 +10,7 @@ import { AboutUs } from './pages/AboutUs.jsx'
 import { ContactIndex } from './pages/ContactIndex.jsx'
 import { store } from './store/store.js'
 import { ContactDetails } from './pages/ContactDetails.jsx'
+import { ContactEdit } from './pages/ContactEdit.jsx'
 
 
 export function App() {
@@ -25,6 +26,8 @@ export function App() {
                             <Route element={<AboutUs />} path="/about" />
                             <Route element={<ContactIndex />} path="/contact" />
                             <Route element={<ContactDetails />} path="/contact/:contactId" />
+                            <Route element={<ContactEdit/>} path='/contact/Edit'/>
+                            <Route element={<ContactEdit/>} path='/contact/Edit/:contactId'/>
                         </Routes>
                     </main>
                     {/* <AppFooter /> */}
