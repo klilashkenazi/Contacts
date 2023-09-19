@@ -2,6 +2,7 @@ const { useEffect, useState } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { contactService } from "../services/contact.service.js"
+import { removeContact } from "../store/actions/contact.action.js"
 
 export function ContactDetails() {
 
@@ -22,6 +23,18 @@ export function ContactDetails() {
                 navigate('/contact')
             })
 
+        function onDeleteContact() {
+            removeContact(contactId)
+                .then(() => {
+                    // showSuccessMsg(`Contact removed: ${contactId}`)
+                    console.log(`Contact removed: ${contactId}`)
+                })
+                .catch(err => {
+                    console.log('Cannot remove contact', err)
+                    // showErrorMsg('Cannot remove contact')
+                })
+        }
+
         if (!contact) return <div>Loading...</div>
         return (
             <section className="contact-details">
@@ -31,7 +44,9 @@ export function ContactDetails() {
                 <h2>Phone number: {contact.phone}</h2>
                 <h3>Email: {contact.email}</h3>
                 <h5>Id: {contact._id}</h5>
-                <Link to="/contact">Back</Link>
+                <button><Link to={`/contact/edit/${contact._id}`}>Edit contact</Link></button>
+                <button><Link to="/contact">Back</Link></button>
+                <button onClick={onDeleteContact}>Delete contact</button>
             </section>
         )
     }
