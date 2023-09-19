@@ -5,7 +5,7 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'contactDB'
 _createContacts()
-export const carService = {
+export const contactService = {
     query,
     getById,
     save,
