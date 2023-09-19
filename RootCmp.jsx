@@ -3,13 +3,13 @@ const { Route, Routes } = ReactRouterDOM
 const { Provider } = ReactRedux
 
 import { AppHeader } from './cmps/AppHeader.jsx'
-import { AppFooter } from './cmps/AppFooter.jsx'
+// import { AppFooter } from './cmps/AppFooter.jsx'
 
 import { HomePage } from './pages/HomePage.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
-import { CarIndex } from './pages/CarIndex.jsx'
+import { ContactIndex } from './pages/ContactIndex.jsx'
 import { store } from './store/store.js'
-import { CarDetails } from './pages/CarDetails.jsx'
+// import { CarDetails } from './pages/CarDetails.jsx'
 
 
 export function App() {
@@ -23,11 +23,11 @@ export function App() {
                         <Routes>
                             <Route element={<HomePage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
-                            <Route element={<CarIndex />} path="/car" />
-                            <Route element={<CarDetails />} path="/car/:carId" />
+                            <Route element={<ContactIndex />} path="/contact" />
+                            {/* <Route element={<CarDetails />} path="/car/:carId" /> */}
                         </Routes>
                     </main>
-                    <AppFooter />
+                    {/* <AppFooter /> */}
                 </section>
             </Router>
         </Provider>
