@@ -57,7 +57,7 @@ export function ContactEdit() {
     }
 
 
-    const { firstName, lastName, email, phone } = contactToEdit
+    const { firstName, lastName, email, phone, desc } = contactToEdit
 
     return (
         <section className="contact-edit">
@@ -67,10 +67,12 @@ export function ContactEdit() {
                 <input onChange={handleChange} type="text" name="firstName" value={firstName} id="firstName" />
                 <label htmlFor="lastName">Last name</label>
                 <input onChange={handleChange} type="text" name="lastName" value={lastName} id="lastName" />
-                <label htmlFor="">Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input onChange={handleChange} type="text" name="email" value={email} id="email" />
-                <label htmlFor="">Phone number:</label>
+                <label htmlFor="phone">Phone number:</label>
                 <input onChange={handleChange} type="text" name="phone" value={phone} id="phone" />
+                <label htmlFor="desc">Description:</label>
+                <input onChange={handleChange} type="text" name="desc" value={desc} id="desc" />
                 {contactToEdit._id ? <button>Save</button> : <button>Add</button>}
             </form>
         </section>
