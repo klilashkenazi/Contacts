@@ -3,9 +3,9 @@ import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, UPDATE_CONTACT} from "../red
 import { store } from '../store.js'
 
 export function loadContacts() {
-    // const { filterBy } = store.getState().contactModule
+    const { filterBy } = store.getState().contactModule
     // store.dispatch({ type: SET_IS_LOADING, isLoading: true })
-    return contactService.query()
+    return contactService.query(filterBy)
         .then(contacts => {
             store.dispatch({ type: SET_CONTACTS, contacts})
         })

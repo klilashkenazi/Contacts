@@ -11,10 +11,26 @@ export const contactService = {
     save,
     remove,
     getEmptyContact,
+    getDefaultFilter
 }
 
-function query() {
+function query(filterBy) {
     return storageService.query(STORAGE_KEY)
+        .then(contactsToReturn => {
+            if (filterBy.searchKey) {
+                const regExp = new RegExp(filterBy.searchKey, 'i')
+                contactsToReturn = contactsToReturn.filter(contact => regExp.test(contact.firstName))
+            }
+
+            if (filterBy.sortBy) {
+                if (filterBy.sortBy !== '') {
+                    const sortKey = filterBy.sortBy 
+                    contactsToReturn = contactsToReturn.sort((a,b)=>a[sortKey].localeCompare(b[sortKey]))
+                }
+                else contactsToReturn
+            }
+            return contactsToReturn
+        })
 }
 
 function getById(contactId) {
@@ -84,9 +100,9 @@ if (!contacts || !contacts.length){
 utilService.saveToStorage(STORAGE_KEY,contacts)
 
 }
-// function getDefaultFilter() {
-//     return { txt: '', maxPrice: '' }
-// }
+function getDefaultFilter() {
+    return { searchKey: '', sortBy: '' }
+}
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 6', price: 980}).then(x => console.log(x))
