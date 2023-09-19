@@ -9,6 +9,7 @@ export function ContactDetails() {
     const navigate = useNavigate()
     const { contactId } = useParams()
     const [contact, setContact] = useState(null)
+    console.log(contact);
 
     useEffect(() => {
         loadContact()
@@ -22,7 +23,7 @@ export function ContactDetails() {
                 // showErrorMsg('Cannot load contact')
                 navigate('/contact')
             })
-
+        }
         function onDeleteContact() {
             removeContact(contactId)
                 .then(() => {
@@ -36,7 +37,7 @@ export function ContactDetails() {
         }
 
         if (!contact) return <div>Loading...</div>
-        return (
+        else return (
             <section className="contact-details">
                 <h1>First name: {contact.firstName}</h1>
                 <h1>Last name: {contact.lastName}</h1>
@@ -49,5 +50,5 @@ export function ContactDetails() {
                 <button onClick={onDeleteContact}>Delete contact</button>
             </section>
         )
-    }
+    
 }
