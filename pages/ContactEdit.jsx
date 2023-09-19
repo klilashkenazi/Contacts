@@ -65,7 +65,7 @@ export function ContactEdit() {
             <form onSubmit={onSaveContact}>
                 <label htmlFor="firstName">First name:</label>
                 <input onChange={handleChange} type="text" name="firstName" value={firstName} id="firstName" />
-                <label htmlFor="lastName">Last name</label>
+                <label htmlFor="lastName">Last name:</label>
                 <input onChange={handleChange} type="text" name="lastName" value={lastName} id="lastName" />
                 <label htmlFor="email">Email:</label>
                 <input onChange={handleChange} type="text" name="email" value={email} id="email" />

@@ -22,16 +22,16 @@ export function ContactFilter ({filterBy,onSetFilter}){
 
 const {searchKey, sortBy} = filterByToEdit
     return (
-        <section className="car-filter full main-layout">
+        <section className="contact-filter full main-layout">
             <h2>Contacts Filter</h2>
             <form >
-                <select onChange={handleChange} name="sortBy" id="sortBy" value={sortBy}>
+                <select onChange={handleChange} name="sortBy" id="sortBy" value={sortBy} className="sort-by">
                     <option value="">Sort By</option>
                     <option value="firstName">First Name</option>
                     <option value="lastName">Last Name</option>
                 </select>
 
-                <input value={searchKey} onChange={handleChange} type="search" placeholder="By contact's first name" id="searchKey" name="searchKey" />
+                <input value={searchKey} onChange={handleChange} type="search" placeholder="By contact's first name" id="searchKey" name="searchKey" className="search-key"/>
             </form>
 
         </section>

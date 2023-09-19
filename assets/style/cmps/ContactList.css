@@ -1,0 +1,20 @@
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.contact-list ul {
+    padding: 0;
+}
+
+.contact-list li {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 3fr 1fr 1fr 1fr;
+    border-radius: 10px;
+    background-color: var(--clr1bg);
+    padding: 8px 15px;
+    margin: 0.5em;
+    border-bottom: 1px solid black;
+}
