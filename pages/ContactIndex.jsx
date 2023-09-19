@@ -1,5 +1,6 @@
 const { useState, useEffect } = React
 const { useSelector, useDispatch } = ReactRedux
+const { Link } = ReactRouterDOM
 
 import { ContactList } from '../cmps/ContactList.jsx'
 // import { CarList } from '../cmps/CarList.jsx'
@@ -65,16 +66,14 @@ export function ContactIndex() {
         <div>
             <h3>Contacts App</h3>
             <main>
-                <button onClick={onAddContact}>Add Contact</button>
+                <button><Link to='/contact/Edit'>Add Contact</Link></button>
                 {/* <CarFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
 
                 <ContactList
                     contacts={contacts}
                     onRemoveContact={onRemoveContact}
-                    // onEditCar={onEditCar}
-                    />
-
-                
+                // onEditCar={onEditCar}
+                />
             </main>
         </div>
     )

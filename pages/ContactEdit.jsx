@@ -16,10 +16,10 @@ export function ContactEdit() {
     }, [])
 
     function loadContact() {
-        contactService.getById(contactId)
+        contactService.getById(params.contactId)
             .then(setcontactToEdit)
             .catch((err) => {
-                console.log('Had issues in todo edit', err)
+                console.log('Had issues in contact edit', err)
                 // showErrorMsg('Cannot load contact')
                 navigate('/contact')
             })
@@ -60,17 +60,17 @@ export function ContactEdit() {
     const { firstName, lastName, email, phone } = contactToEdit
 
     return (
-        <section className="todo-edit">
+        <section className="contact-edit">
             {contactToEdit._id ? <h2> Edit Contact</h2> : <h2>Add Contact:</h2>}
             <form onSubmit={onSaveContact}>
                 <label htmlFor="firstName">First name:</label>
-                <input type="text" name="firstName" value={firstName} id="firstName" />
+                <input onChange={handleChange} type="text" name="firstName" value={firstName} id="firstName" />
                 <label htmlFor="lastName">Last name</label>
-                <input type="text" name="lastName" value={lastName} id="lastName" />
+                <input onChange={handleChange} type="text" name="lastName" value={lastName} id="lastName" />
                 <label htmlFor="">Email:</label>
-                <input type="text" name="email" value={email} id="email" />
+                <input onChange={handleChange} type="text" name="email" value={email} id="email" />
                 <label htmlFor="">Phone number:</label>
-                <input type="text" name="phone" value={phone} id="phone" />
+                <input onChange={handleChange} type="text" name="phone" value={phone} id="phone" />
                 {contactToEdit._id ? <button>Save</button> : <button>Add</button>}
             </form>
         </section>
