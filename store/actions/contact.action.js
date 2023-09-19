@@ -1,5 +1,5 @@
 import { contactService } from "../../services/contact.service.js"
-import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS} from "../reducers/contact.reducer.js"
+import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, UPDATE_CONTACT} from "../reducers/contact.reducer.js"
 import { store } from '../store.js'
 
 export function loadContacts() {
@@ -40,16 +40,16 @@ export function addContact(contactToAdd) {
         })
 }
 
-// export function togglecontact(contactToToggle) {
-//     return contactService.save(contactToToggle)
-//         .then((savedcontact) => {
-//             store.dispatch({ type: UPDATE_contact, contact: savedcontact })
-//         })
-//         .catch(err => {
-//             console.log('Cannot toggle contact', err)
-//             throw err
-//         })
-// }
+export function updateContact(contactToUpdate) {
+    return contactService.save(contactToUpdate)
+        .then((savedcontact) => {
+            store.dispatch({ type: UPDATE_CONTACT, contact: savedcontact })
+        })
+        .catch(err => {
+            console.log('Cannot update contact', err)
+            throw err
+        })
+}
 
 // export function setFilterBy(filterBy) {
 //     store.dispatch({ type: SET_FILTER_BY, filterBy: filterBy })
