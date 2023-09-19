@@ -48,6 +48,7 @@ let contacts=utilService.loadFromStorage(STORAGE_KEY)
 if (!contacts || !contacts.length){
     contacts=[
         {
+            _id: 'con101',
             firstName: 'Maya',
             lastName:'Cohen',
             email: 'maya@gmail.com',
@@ -55,6 +56,7 @@ if (!contacts || !contacts.length){
             desc:'She is tired'
         },
         {
+            _id: 'con102',
             firstName: 'Puki',
             lastName:'Cohen',
             email: 'puki@gmail.com',
@@ -62,6 +64,7 @@ if (!contacts || !contacts.length){
             desc:'He has a weird name'
         },
         {
+            _id: 'con103',
             firstName: 'Klil',
             lastName:'Ashkenazi',
             email: 'klil@gmail.com',
@@ -69,6 +72,7 @@ if (!contacts || !contacts.length){
             desc:'She is a great partner'
         },
         {
+            _id: 'con104',
             firstName: 'Muki',
             lastName:'Ashkenazi',
             email: 'muki@gmail.com',
